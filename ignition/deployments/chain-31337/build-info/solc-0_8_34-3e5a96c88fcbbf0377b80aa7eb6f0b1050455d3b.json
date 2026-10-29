@@ -1,0 +1,49 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_34-3e5a96c88fcbbf0377b80aa7eb6f0b1050455d3b",
+  "solcVersion": "0.8.34",
+  "solcLongVersion": "0.8.34+commit.80d5c536",
+  "compilerType": "solc",
+  "toolVersions": {
+    "hardhat": "3.21.1"
+  },
+  "userSourceNameMap": {
+    "contracts/FundTracker.sol": "project/contracts/FundTracker.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "osaka",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode.linkReferences",
+            "evm.bytecode.object",
+            "evm.bytecode.opcodes",
+            "evm.bytecode.sourceMap",
+            "evm.deployedBytecode.immutableReferences",
+            "evm.deployedBytecode.linkReferences",
+            "evm.deployedBytecode.object",
+            "evm.deployedBytecode.opcodes",
+            "evm.deployedBytecode.sourceMap",
+            "evm.methodIdentifiers"
+          ]
+        }
+      },
+      "remappings": []
+    },
+    "sources": {
+      "project/contracts/FundTracker.sol": {
+        "content": "\r\n// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.28;\r\n\r\ncontract FundTracker {\r\n    address public owner;\r\n    uint256 public totalContributions;\r\n\r\n    mapping(address => uint256) public contributions;\r\n\r\n    event ContributionReceived(\r\n        address indexed contributor,\r\n        uint256 amount\r\n    );\r\n\r\n    constructor() {\r\n        owner = msg.sender;\r\n    }\r\n\r\n    function contribute() external payable {\r\n        require(msg.value > 0, \"Contribution must be greater than zero\");\r\n\r\n        contributions[msg.sender] += msg.value;\r\n        totalContributions += msg.value;\r\n\r\n        emit ContributionReceived(msg.sender, msg.value);\r\n    }\r\n\r\n    function getMyContribution() external view returns (uint256) {\r\n        return contributions[msg.sender];\r\n    }\r\n}\r\n"
+      }
+    }
+  }
+}

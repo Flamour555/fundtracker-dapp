@@ -1,0 +1,257 @@
+
+#root { min-height: 100vh; }
+
+.app-shell {
+  width: min(1100px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.topbar {
+  height: 84px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #222b40;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 37px;
+  height: 37px;
+  border-radius: 12px;
+  color: #0b1020;
+  background: #a9f6c5;
+  font-size: 22px;
+}
+
+.connect-button, .submit-button {
+  border: 0;
+  border-radius: 11px;
+  padding: 12px 18px;
+  color: #08111b;
+  background: #a9f6c5;
+  font-weight: 700;
+}
+
+.hero { padding: 76px 0 40px; }
+
+.eyebrow {
+  color: #9cebb9;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+h1, h2 { font-family: "Space Grotesk", sans-serif; }
+h1 {
+  margin: 18px 0;
+  font-size: clamp(42px, 7vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -3px;
+}
+h1 span { color: #a9f6c5; }
+.hero > p, .panel > p {
+  max-width: 600px;
+  color: #9ba7bd;
+  line-height: 1.8;
+}
+
+.network-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 9px 12px;
+  border: 1px solid #29394a;
+  border-radius: 30px;
+  color: #c6d2df;
+  font-size: 12px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #a9f6c5;
+}
+
+.stats-grid, .content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.stat-card, .panel {
+  border: 1px solid #263148;
+  border-radius: 18px;
+  background: #11192b;
+  padding: 27px;
+}
+
+.stat-label { color: #9ba7bd; font-size: 11px; letter-spacing: 1.3px; }
+.stat-card strong {
+  display: block;
+  margin: 15px 0 8px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(30px, 4vw, 42px);
+}
+.stat-card strong small { color: #a9f6c5; font-size: 15px; }
+.stat-card p, .hint { color: #8996ac; font-size: 12px; line-height: 1.6; }
+
+.content-grid { margin-top: 18px; }
+.panel h2 { margin: 13px 0 8px; font-size: 25px; }
+.panel > p { font-size: 13px; }
+
+.panel label {
+  display: block;
+  margin: 24px 0 9px;
+  color: #c5cee0;
+  font-size: 13px;
+}
+
+.amount-input {
+  display: flex;
+  align-items: center;
+  border: 1px solid #33415a;
+  border-radius: 11px;
+  background: #0b1020;
+  padding: 0 14px;
+}
+.amount-input input {
+  width: 100%;
+  min-width: 0;
+  padding: 15px 0;
+  border: 0;
+  outline: none;
+  color: white;
+  background: transparent;
+}
+.amount-input span { color: #a9f6c5; font-weight: 700; }
+
+.submit-button { width: 100%; margin-top: 14px; }
+.status-message {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 9px;
+  background: #19253a;
+  color: #cbd7e9;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 17px 0;
+  border-bottom: 1px solid #293248;
+  font-size: 12px;
+}
+.detail-row span { color: #9ba7bd; }
+.detail-row strong { text-align: right; }
+.address { color: #a9f6c5; }
+
+.copy-button {
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px;
+  border: 1px solid #33415a;
+  border-radius: 10px;
+  background: transparent;
+  color: #e9edf7;
+}
+
+footer {
+  padding: 30px 0;
+  margin-top: 20px;
+  color: #7e8aa0;
+  text-align: center;
+  font-size: 12px;
+}
+
+@media (max-width: 700px) {
+  .app-shell { width: min(100% - 28px, 520px); }
+  .hero { padding-top: 54px; }
+  .stats-grid, .content-grid { grid-template-columns: 1fr; }
+  .stat-card, .panel { padding: 22px; }
+  h1 { letter-spacing: -2px; }
+  .topbar { height: 72px; }
+}
+
+/* FundTracker contribution analytics */
+.analytics-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 20px;
+  margin: 24px 0;
+  align-items: start;
+}
+
+.analytics-summary,
+.contribution-chart {
+  min-width: 0;
+}
+
+.analytics-summary h2,
+.contribution-chart h2 {
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+.chart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.chart-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chart-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+}
+
+.chart-track {
+  width: 100%;
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.15);
+}
+
+.chart-bar {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #10b981, #34d399);
+  transition: width 0.35s ease;
+}
+
+.chart-caption {
+  color: #94a3b8;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 760px) {
+  .analytics-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
